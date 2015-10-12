@@ -1,0 +1,191 @@
+<!-- <ui-gmap-google-map draggable="false" center="map.center" zoom="map.zoom" options="map.options">
+    <ui-gmap-marker click="'showInfoWindow(event, 9)'" coords="marker.coords" options="marker.options" idkey="marker.id"></ui-gmap-marker>
+</ui-gmap-google-map> -->
+<div>
+    <ui-gmap-google-map center='map.center' zoom="6">
+        <ui-gmap-window coords="windowCoords" show="windowOptions.visible" options="windowOptions" closeClick="closeClick()" templateUrl="'views/infoWindow.html'" templateParameter="currentSlipway">
+        </ui-gmap-window>
+        <ui-gmap-markers models='slipwayMarkers' coords="'self'" icon="'markerImage'" idkey="'NodeID'" doCluster="true" click="click">
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+</div>
+<div ng-if='isCurrentSlipway'>
+    <h3>{{currentSlipway['Nearest Area']}}</h3>
+    <br>
+    <hr>
+    <span class="displaysectionheading">General information:</span>
+    <br>
+    <br><span class="displayheading">
+</span>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="displaylabel">Long:</span>
+                    <span class="displaydata">{{currentSlipway.longitude}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Lat:</span>
+                    <span class="displaydata">{{currentSlipway.latitude}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+            </tr>
+        </tbody>
+    </table><span class="displayheading">
+</span>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="displaylabel">Nearest Place:</span>
+                    <span class="displaydata">{{currentSlipway['Nearest Place']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Country:</span>
+                    <span class="displaydata">{{currentSlipway['Country']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Region:</span>
+                    <span class="displaydata">{{currentSlipway['Region']}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+            </tr>
+        </tbody>
+    </table><span class="displayheading">
+</span>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="displaylabel">Web Site:</span>
+                    <span class="displaydata">
+        <a ng-href="http://{{currentSlipway['Web Site']}}" target="_blank">{{currentSlipway['Web Site']}}</a>
+      </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr>
+    <span class="displaysectionheading">Slipway information:</span>
+    <br>
+    <br><span class="displayheading">
+</span>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="displaylabel">Phone Number:</span>
+                    <span class="displaydata">{{currentSlipway['Phone Number']}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table ng-if="isCurrentSlipway">
+        <tbody>
+            <tr>
+                <td>
+                    <span class="displaylabel">Ramp Description:</span>
+                    <span class="displaydata">{{currentSlipway['Ramp Description']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Directions:</span>
+                    <span class="displaydata">{{currentSlipway.Directions}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Ramp Type:</span>
+                    <span class="displaydata">{{currentSlipway['Ramp Type']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Upper Area:</span>
+                    <span class="displaydata">{{currentSlipway['Upper Area']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Lower Area:</span>
+                    <span class="displaydata">{{currentSlipway['Lower Area']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Suitability:</span>
+                    <span class="displaydata">{{currentSlipway.Suitability}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Ramp Length:</span>
+                    <span class="displaydata">{{currentSlipway['Ramp Length']}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Facilities:</span>
+                    <span class="displaydata">{{currentSlipway.Facilities}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="displaylabel">Charges:</span>
+                    <span class="displaydata">{{currentSlipway.Charges}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row marketing">
+    <h4>Welcome to Boatlaunch - the online boating directory</h4>
+    <p>
+        <p>
+            We list detailed information about boating facilities and activities including marinas, slipways, chandleries and tidal information for the next seven days. Our listings are continuously updated by boating enthusiasts which keeps it up to date.
+        </p>
+        <p>
+            The site is free to use, free to update and all our information is freely available to be used on other web sites (see our Creative Commons Licence at the bottom of this page). So if you are looking for some boating information or you want to share your local knowledge with fellow boating enthusiasts, we can help.
+        </p>
+        <p>
+            Click on the map to zoom into your area of interest. Keep zooming in until icons appear and then click on the icons for more information Click on the Pref tab above the map to select the information you want to see.
+        </p>
+        <p>
+            Dont be afraid to edit -you can edit most pages, and we encourage you to add, improve and even delete if necessary.
+        </p>
+        <p>
+            If you would like to have a go at editing now please use the Sandbox:
+            <br> Click on the "Edit Place" text at the top of the map Edit the form Click the Submit button to save your writing
+        </p>
+        <p>
+            Your business can be listed on boatlaunch.co.uk free of charge. Click on Get Listed for more details.
+        </p>
+        <p>
+            Boatlaunch information also appears on chart navigation systems such as Garmin, Maptech, SeaPro and Memory-Map. We also produce the Good Launch Guide, the essential guide to slipways around the UK
+        </p>
+    </p>
+</div>
